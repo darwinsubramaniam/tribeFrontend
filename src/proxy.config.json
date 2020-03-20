@@ -1,8 +1,0 @@
-{
-    "/api/posts": {
-        "target": "https://jsonplaceholder.typicode.com/posts",
-        "secure": false,
-        "logLevel": "debug",
-        "changeOrigin": true
-    }
-}

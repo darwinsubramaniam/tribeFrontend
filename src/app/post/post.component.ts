@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { IPost } from 'src/shared/post.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post',
@@ -17,6 +18,14 @@ export class PostComponent implements OnInit {
   body: string;
   userId: number;
 
+  isCommentsVisible = false;
+
+  listOfComments = []
+
+  commentParam: HttpParams = new HttpParams().set('postId', this.postId);
+  comment$: Observable<any>;
+
+
   constructor(public activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -30,10 +39,27 @@ export class PostComponent implements OnInit {
         this.title = data.title;
         this.body = data.body;
         this.userId = data.userId;
+        });
+
+      this.commentParam = new HttpParams().set('postId', this.postId);
+      this.comment$ = this.http.get('/api/comments', { params: this.commentParam });
+      this.comment$.subscribe(comments => {
+        console.log(comments)
+        this.listOfComments = comments;
       });
     });
 
 
+  }
+
+  viewComments() {
+    if (this.isCommentsVisible) {
+
+      this.isCommentsVisible = false;
+
+    } else {
+      this.isCommentsVisible = true;
+    }
   }
 
 }

@@ -68,7 +68,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "tribefront:build",
-            "proxyConfig": "src/proxy.config.json"
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

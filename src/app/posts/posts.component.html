@@ -2,8 +2,8 @@
     <div mat-subheader>Post</div>
     <mat-list-item *ngFor="let post of posts$ | async">
       <mat-icon mat-list-icon>Posts</mat-icon>
-      <div mat-line>{{post.title}}</div>
-      <div mat-line> {{post.body}} </div>
+      <div mat-line>Title : {{post.title}}</div>
+      <div mat-line>Content : {{post.body}} </div>
 
 
       <button routerLink="/post" [state]="{postId : post.id }">More Detail</button>

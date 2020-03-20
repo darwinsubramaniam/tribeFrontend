@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card'; 
+import {MatExpansionModule} from '@angular/material/expansion'; 
 
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
@@ -37,6 +38,7 @@ import { PostComponent } from './post/post.component';
     MatListModule,
     MatButtonModule,
     MatCardModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card>
     <mat-card-header>
       <mat-card-title>{{title}}</mat-card-title>
     </mat-card-header>
@@ -8,8 +8,23 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
+      <button mat-button (click)="viewComments()" >View Comments</button>
       <button mat-button>LIKE</button>
       <button mat-button>SHARE</button>
     </mat-card-actions>
   </mat-card>
+
+  <mat-divider></mat-divider>
+
+  <mat-list *ngIf="!isCommentsVisible">
+    <div mat-subheader>Comments</div>
+    <mat-list-item class=comments *ngFor="let comment of listOfComments">
+        <mat-card > 
+            <mat-card-content>
+                by: {{comment.email}}
+                <p>{{comment.body}}</p>
+            </mat-card-content>
+        </mat-card>
+    </mat-list-item>
+  </mat-list>
   
